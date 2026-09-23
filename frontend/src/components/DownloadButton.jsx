@@ -4,8 +4,8 @@ import { getDownloadUrl } from '../services/documentApi';
 
 export default function DownloadButton({ documentId, fileName }) {
   return (
-    <a href={getDownloadUrl(documentId)} download={fileName}>
-      Baixar
+    <a className="download-link" href={getDownloadUrl(documentId)} download={fileName}>
+      ⬇ Baixar
     </a>
   );
 }

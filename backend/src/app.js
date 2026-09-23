@@ -23,7 +23,8 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.use('/api', documentRoutes);
+// O prefixo /api é adicionado pelo frontend e removido pelo proxy do Vite.
+app.use(documentRoutes);
 
 if (require.main === module) {
   app.listen(PORT, () => {

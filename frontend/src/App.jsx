@@ -33,11 +33,20 @@ export default function App() {
   }
 
   return (
-    <main style={{ fontFamily: 'system-ui, sans-serif', padding: '2rem' }}>
-      <h1>Document Management System</h1>
-      <UploadComponent owner={DEFAULT_OWNER} onUploaded={handleUploaded} />
-      <h2>Documentos</h2>
-      <DocumentList documents={documents} isLoading={isLoading} error={error} />
-    </main>
+    <>
+      <header className="app-header">
+        <h1 className="app-header__title">Document Management System</h1>
+      </header>
+      <main className="app-container">
+        <section>
+          <h2 className="section-title">Enviar documento</h2>
+          <UploadComponent owner={DEFAULT_OWNER} onUploaded={handleUploaded} />
+        </section>
+        <section>
+          <h2 className="section-title">Documentos</h2>
+          <DocumentList documents={documents} isLoading={isLoading} error={error} />
+        </section>
+      </main>
+    </>
   );
 }

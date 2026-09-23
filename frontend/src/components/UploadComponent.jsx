@@ -32,16 +32,19 @@ export default function UploadComponent({ owner, onUploaded }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Enviar documento</h2>
-      <input
-        type="file"
-        onChange={(event) => setFile(event.target.files[0] ?? null)}
-      />
-      <button type="submit" disabled={isUploading}>
+    <form className="upload-card upload-form" onSubmit={handleSubmit}>
+      <label className="upload-form__file-label">
+        {file ? file.name : 'Escolher arquivo...'}
+        <input
+          className="upload-form__file-input"
+          type="file"
+          onChange={(event) => setFile(event.target.files[0] ?? null)}
+        />
+      </label>
+      <button className="button button--primary" type="submit" disabled={isUploading}>
         {isUploading ? 'Enviando...' : 'Enviar'}
       </button>
-      {error && <p role="alert">{error}</p>}
+      {error && <p className="alert" role="alert">{error}</p>}
     </form>
   );
 }
